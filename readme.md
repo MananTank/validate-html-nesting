@@ -1,8 +1,27 @@
 # validate-html-nesting
 
-- Test a parent-child nesting is valid html or not
-- it only considers the nesting "invalid" if browser automatically "fixes" it. Other nestings such as `h1 > div` though technically invalid as per HTML spec, it's still considered valid because the browser does not fix it
-- supports all tags, including svg
+parent-child nesting validation for html elements
+
+This is not a full blown HTML spec validation (intentionally). The parent-child nesting is considered valid if browser does not modify it, regardless of whether or not HTML spec considers it valid or invalid. So, the library is purely for detecting the kind of element nesting which result in altered DOM.
+
+### Example
+
+```html
+<p>
+  hello
+  <hr/>
+</p>
+```
+
+browser modifies the above shown structure to below shown structure, which is why the library considers the `p > hr` nesting invalid.
+
+```html
+<p>hello</p>
+<hr />
+<p></p>
+```
+
+And though `<h1> <div> hi </div> </h1>` markup is technically invalid as per HTML spec, it's still considered valid because the browser does not modify it, so `h1 > div` nesting is considered valid by the library.
 
 <br/>
 
@@ -20,7 +39,7 @@ npm i validate-html-nesting
 isValidHTMLNesting(parentTag: string, childTag: string) : boolean
 ```
 
-<br/>
+<br />
 
 ## Usage Example
 
@@ -39,6 +58,27 @@ isValidHTMLNesting('div', 'a'); // true
 
 <br/>
 
-## Tests
+## See also
+
+- [babel-plugin-validate-jsx-nesting](https://github.com/MananTank/validate-jsx-nesting) - Compile time JSX nesting validation
+
+<br/>
+
+## Who is this library for?
+
+This library is mostly useful for UI framework authors who need a way to make sure that DOM structure rendered by the browser matches the authored markup so that there's no unexpected behaviors
+
+<br/>
+
+<br/>
+
+## Test Suite
 
 Refer to [validation.test.js](/tests/validation.test.js) to see full test suite
+
+<br/>
+
+## Contributing
+
+PR's are welcome.
+Create an issue if you found a bug.

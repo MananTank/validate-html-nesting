@@ -1,13 +1,20 @@
 {
   "name": "validate-html-nesting",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Validate parent-child nesting for HTML elements",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "html validator",
+    "dom validator"
+  ],
+  "author": "Manan Tank",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MananTank/validate-html-nesting.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^27.5.1",
