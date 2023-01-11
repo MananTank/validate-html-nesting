@@ -1,8 +1,8 @@
 # validate-html-nesting
 
-parent-child nesting validation for html elements
+A parent-child nesting validation library for HTML
 
-This is not a full blown HTML spec validation (intentionally). The parent-child nesting is considered valid if browser does not modify it, regardless of whether or not HTML spec considers it valid or invalid. So, the library is purely for detecting the kind of element nesting which result in altered DOM.
+This is not a full-blown HTML spec validation (intentionally). The parent-child nesting is considered valid if the Browser does not modify it, regardless of whether or not the HTML spec considers it valid or invalid. So, the library is purely for detecting the kind of element nesting which result in altered DOM.
 
 ### Example
 
@@ -13,7 +13,7 @@ This is not a full blown HTML spec validation (intentionally). The parent-child 
 </p>
 ```
 
-browser modifies the above shown structure to below shown structure, which is why the library considers the `p > hr` nesting invalid.
+The Browser modifies the above-shown structure to the below-shown structure, which is why the library considers the `p > hr` nesting invalid.
 
 ```html
 <p>hello</p>
@@ -60,25 +60,24 @@ isValidHTMLNesting('div', 'a'); // true
 
 ## See also
 
+- [eslint-plugin-validate-jsx-nesting](https://github.com/MananTank/eslint-plugin-validate-jsx-nesting) - ESLint plugin for JSX nesting validation
 - [babel-plugin-validate-jsx-nesting](https://github.com/MananTank/validate-jsx-nesting) - Compile time JSX nesting validation
 
 <br/>
 
 ## Who is this library for?
 
-This library is mostly useful for UI framework authors who need a way to make sure that DOM structure rendered by the browser matches the authored markup so that there's no unexpected behaviors
-
-<br/>
+This library is mostly useful for UI framework authors who need a way to make sure that the DOM structure rendered by the browser matches the authored markup so that there are no unexpected behaviors
 
 <br/>
 
 ## Test Suite
 
-Refer to [validation.test.js](/tests/validation.test.js) to see full test suite
+Refer to [validation.test.js](/tests/validation.test.js) to see the full test suite
 
 <br/>
 
 ## Contributing
 
-PR's are welcome.
+PRs are welcome.
 Create an issue if you found a bug.
