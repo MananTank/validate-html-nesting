@@ -38,7 +38,7 @@ function isValidHTMLNesting(parent, child) {
 	}
 
 	// svg tags should only contain svg tags
-	if (svgTags.has(parent) && !svgTags.has(child)) {
+	if (svgTags.has(parent) && child !== "a" && !svgTags.has(child)) {
 		return false;
 	}
 
