@@ -109,7 +109,7 @@ test('svg', () => {
 	expect(isValidHTMLNesting('svg', 'p')).toBe(false);
 
 	// valid
-	expect(isValidHTMLNesting('svg', 'a')).toBe(false);
+	expect(isValidHTMLNesting('svg', 'a')).toBe(true);
 	expect(isValidHTMLNesting('svg', 'g')).toBe(true);
 	expect(isValidHTMLNesting('svg', 'ellipse')).toBe(true);
 	expect(isValidHTMLNesting('div', 'svg')).toBe(true);
