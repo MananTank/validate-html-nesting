@@ -127,3 +127,11 @@ test('headings', () => {
 	// valid
 	expect(isValidHTMLNesting('h1', 'div')).toBe(true);
 });
+
+test('foreignObject', () => {
+    expect(isValidHTMLNesting('foreignObject', 'div')).toBe(true);
+    expect(isValidHTMLNesting('foreignObject', 'a')).toBe(true);
+    expect(isValidHTMLNesting('foreignObject', 'textarea')).toBe(true);
+    expect(isValidHTMLNesting('foreignObject', 'xxx')).toBe(true);
+    expect(isValidHTMLNesting('foreignObject', '😉')).toBe(true);
+});

@@ -12,7 +12,7 @@ const {
  * @param {string} parent
  * @returns {boolean}
  */
-function isValidHTMLNesting(parent, child) {
+function isValidHTMLNesting(parent, child) { 
 	// if we know the list of children that are the only valid children for the given parent
 	if (parent in onlyValidChildren) {
 		return onlyValidChildren[parent].has(child);
@@ -36,6 +36,12 @@ function isValidHTMLNesting(parent, child) {
 		// if so, return false
 		if (knownInvalidParents[child].has(parent)) return false;
 	}
+
+    // SVG foreign objects, child could be literally anythng
+    if(parent === "foreignObject")
+    {
+        return true;
+    }
 
 	// SVG tags should only contain SVG tags or anchor tag
 	if (svgTags.has(parent) && child !== 'a' && !svgTags.has(child)) {
