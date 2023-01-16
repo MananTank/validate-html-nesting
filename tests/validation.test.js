@@ -102,21 +102,6 @@ test('li', () => {
 	expect(isValidHTMLNesting('li', 'ul')).toBe(true);
 });
 
-test('svg', () => {
-	// invalid
-	expect(isValidHTMLNesting('svg', 'div')).toBe(false);
-	expect(isValidHTMLNesting('svg', 'img')).toBe(false);
-	expect(isValidHTMLNesting('svg', 'p')).toBe(false);
-
-	// valid
-	expect(isValidHTMLNesting('svg', 'a')).toBe(true);
-	expect(isValidHTMLNesting('svg', 'g')).toBe(true);
-	expect(isValidHTMLNesting('svg', 'ellipse')).toBe(true);
-	expect(isValidHTMLNesting('div', 'svg')).toBe(true);
-	expect(isValidHTMLNesting('section', 'svg')).toBe(true);
-	expect(isValidHTMLNesting('section', 'feOffset')).toBe(true);
-});
-
 test('headings', () => {
 	// invalid
 	expect(isValidHTMLNesting('h1', 'h1')).toBe(false);
@@ -126,4 +111,43 @@ test('headings', () => {
 
 	// valid
 	expect(isValidHTMLNesting('h1', 'div')).toBe(true);
+});
+
+describe('SVG', () => {
+	test('svg', () => {
+		// invalid non-svg tags as children
+		expect(isValidHTMLNesting('svg', 'div')).toBe(false);
+		expect(isValidHTMLNesting('svg', 'img')).toBe(false);
+		expect(isValidHTMLNesting('svg', 'p')).toBe(false);
+		expect(isValidHTMLNesting('svg', 'h2')).toBe(false);
+		expect(isValidHTMLNesting('svg', 'span')).toBe(false);
+
+		// valid non-svg tags as children
+		expect(isValidHTMLNesting('svg', 'a')).toBe(true);
+		expect(isValidHTMLNesting('svg', 'textarea')).toBe(true);
+		expect(isValidHTMLNesting('svg', 'input')).toBe(true);
+		expect(isValidHTMLNesting('svg', 'select')).toBe(true);
+
+		// valid svg tags as children
+		expect(isValidHTMLNesting('svg', 'g')).toBe(true);
+		expect(isValidHTMLNesting('svg', 'ellipse')).toBe(true);
+		expect(isValidHTMLNesting('svg', 'feOffset')).toBe(true);
+	});
+
+	test('foreignObject', () => {
+		// valid
+		expect(isValidHTMLNesting('foreignObject', 'g')).toBe(true);
+		expect(isValidHTMLNesting('foreignObject', 'div')).toBe(true);
+		expect(isValidHTMLNesting('foreignObject', 'a')).toBe(true);
+		expect(isValidHTMLNesting('foreignObject', 'textarea')).toBe(true);
+	});
+
+	test('g', () => {
+		// valid
+		expect(isValidHTMLNesting('g', 'div')).toBe(true);
+		expect(isValidHTMLNesting('g', 'p')).toBe(true);
+		expect(isValidHTMLNesting('g', 'a')).toBe(true);
+		expect(isValidHTMLNesting('g', 'textarea')).toBe(true);
+		expect(isValidHTMLNesting('g', 'g')).toBe(true);
+	});
 });

@@ -1,4 +1,3 @@
-const { svgTags } = require('./svg-tags');
 const {
 	onlyValidChildren,
 	onlyValidParents,
@@ -35,11 +34,6 @@ function isValidHTMLNesting(parent, child) {
 		// check if the parent is in the list of invalid parents
 		// if so, return false
 		if (knownInvalidParents[child].has(parent)) return false;
-	}
-
-	// SVG tags should only contain SVG tags or anchor tag
-	if (svgTags.has(parent) && child !== 'a' && !svgTags.has(child)) {
-		return false;
 	}
 
 	return true;
