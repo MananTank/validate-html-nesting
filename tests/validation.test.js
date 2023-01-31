@@ -150,4 +150,17 @@ describe('SVG', () => {
 		expect(isValidHTMLNesting('g', 'textarea')).toBe(true);
 		expect(isValidHTMLNesting('g', 'g')).toBe(true);
 	});
+
+	test('dl', () => {
+		// valid
+		expect(isValidHTMLNesting('dl', 'dt')).toBe(true);
+		expect(isValidHTMLNesting('dl', 'dd')).toBe(true);
+		expect(isValidHTMLNesting('dl', 'div')).toBe(true);
+		expect(isValidHTMLNesting('div', 'dt')).toBe(true);
+		expect(isValidHTMLNesting('div', 'dd')).toBe(true);
+
+		// invalid
+		expect(isValidHTMLNesting('span', 'dt')).toBe(false);
+		expect(isValidHTMLNesting('span', 'dd')).toBe(false);
+	});
 });

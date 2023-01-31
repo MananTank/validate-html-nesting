@@ -53,8 +53,8 @@ const onlyValidParents = {
 	thead: new Set(['table']),
 	tr: new Set(['tbody', 'thead', 'tfoot']),
 	// data list
-	dd: new Set(['dl']),
-	dt: new Set(['dl']),
+	dd: new Set(['dl', 'div']),
+	dt: new Set(['dl', 'div']),
 	// other
 	figcaption: new Set(['figure']),
 	// li: new Set(["ul", "ol"]),
