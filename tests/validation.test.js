@@ -18,7 +18,6 @@ test('p', () => {
 	expect(isValidHTMLNesting('p', 'p')).toBe(false);
 	expect(isValidHTMLNesting('p', 'div')).toBe(false);
 	expect(isValidHTMLNesting('p', 'hr')).toBe(false);
-	expect(isValidHTMLNesting('p', 'input')).toBe(false);
 	expect(isValidHTMLNesting('p', 'blockquote')).toBe(false);
 	expect(isValidHTMLNesting('p', 'pre')).toBe(false);
 
@@ -29,6 +28,8 @@ test('p', () => {
 	expect(isValidHTMLNesting('p', 'button')).toBe(true);
 	expect(isValidHTMLNesting('p', 'b')).toBe(true);
 	expect(isValidHTMLNesting('p', 'i')).toBe(true);
+	expect(isValidHTMLNesting('p', 'input')).toBe(true);
+	expect(isValidHTMLNesting('p', 'label')).toBe(true);
 });
 
 test('a', () => {

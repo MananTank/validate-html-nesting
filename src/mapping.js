@@ -87,7 +87,6 @@ const knownInvalidChildren = {
 		'h6',
 		'header',
 		'hgroup',
-		'input',
 		'hr',
 		'li',
 		'main',
