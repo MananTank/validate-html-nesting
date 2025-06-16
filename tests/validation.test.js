@@ -24,6 +24,7 @@ test('select', () => {
 	expect(isValidHTMLNesting('select', 'optgroup')).toBe(true);
 	expect(isValidHTMLNesting('select', 'hr')).toBe(true);
 	expect(isValidHTMLNesting('select', 'button')).toBe(true);
+	expect(isValidHTMLNesting('select', 'div')).toBe(true);
 });
 
 test('p', () => {

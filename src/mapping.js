@@ -18,7 +18,7 @@ const onlyValidChildren = {
 		'template',
 	]),
 	optgroup: new Set(['option']),
-	select: new Set(['optgroup', 'option', 'hr', 'button']),
+	select: new Set(['optgroup', 'option', 'hr', 'button', 'div']),
 	math: new Set(['mrow']),
 	script: new Set(),
 	// table
@@ -30,7 +30,7 @@ const onlyValidChildren = {
 	tfoot: new Set(['tr']),
 	// these elements can not have any children elements
 	iframe: emptySet,
-	option: emptySet,
+	option: new Set(['abbr', 'b', 'bdi', 'bdo', 'br', 'canvas', 'cite', 'code', 'data', 'del', 'dfn', 'div', 'em', 'i', 'img', 'ins', 'kbd', 'link', 'mark', 'meter', 'noscript', 'output', 'picture', 'progress', 'q', 'ruby', 's', 'samp', 'script', 'small', 'span', 'strong', 'sub', 'sup', 'template', 'time', 'u', 'var', 'wbr']),
 	textarea: emptySet,
 	style: emptySet,
 	title: emptySet,
