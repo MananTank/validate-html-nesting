@@ -18,7 +18,7 @@ const onlyValidChildren = {
 		'template',
 	]),
 	optgroup: new Set(['option']),
-	select: new Set(['optgroup', 'option']),
+	select: new Set(['optgroup', 'option', 'button']),
 	math: new Set(['mrow']),
 	script: new Set(),
 	// table
