@@ -13,6 +13,19 @@ test('form', () => {
 	expect(isValidHTMLNesting('form', 'h1')).toBe(true);
 });
 
+test('select', () => {
+	// invalid
+	expect(isValidHTMLNesting('select', 'select')).toBe(false);
+	expect(isValidHTMLNesting('select', 'p')).toBe(false);
+	expect(isValidHTMLNesting('select', 'h1')).toBe(false);
+
+	// valid
+	expect(isValidHTMLNesting('select', 'option')).toBe(true);
+	expect(isValidHTMLNesting('select', 'optgroup')).toBe(true);
+	expect(isValidHTMLNesting('select', 'hr')).toBe(true);
+	expect(isValidHTMLNesting('select', 'button')).toBe(true);
+});
+
 test('p', () => {
 	// invalid
 	expect(isValidHTMLNesting('p', 'p')).toBe(false);
