@@ -1,6 +1,6 @@
 {
   "name": "validate-html-nesting",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Validate parent-child nesting for HTML elements",
   "main": "src/index.js",
   "types": "./src/types.d.ts",
