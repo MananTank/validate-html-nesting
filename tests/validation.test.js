@@ -26,6 +26,20 @@ test('select', () => {
 	expect(isValidHTMLNesting('select', 'button')).toBe(true);
 });
 
+test('customizable select', () => {
+	// invalid
+	expect(isValidHTMLNesting('select', 'selectedcontent')).toBe(false);
+	expect(isValidHTMLNesting('option', 'button')).toBe(false);
+
+	// using example from https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select
+
+	// valid
+	expect(isValidHTMLNesting('select', 'button')).toBe(true);
+	expect(isValidHTMLNesting('button', 'selectedcontent')).toBe(true);
+	expect(isValidHTMLNesting('select', 'option')).toBe(true);
+	expect(isValidHTMLNesting('option', 'span')).toBe(true);
+});
+
 test('p', () => {
 	// invalid
 	expect(isValidHTMLNesting('p', 'p')).toBe(false);
